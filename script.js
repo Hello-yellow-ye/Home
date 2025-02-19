@@ -430,5 +430,17 @@ function handleSubmit() {
     }
 }
 
+
+document.addEventListener('gesturestart', function (event) {
+    event.preventDefault();
+});
+
+document.addEventListener('touchmove', function (event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
+
 // عرض المنتجات عند تحميل الصفحة
 window.onload = displayProducts;
