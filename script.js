@@ -100,9 +100,9 @@ const products = [
 
 // أكواد الخصم
 const discountCodes = [
-    { code: "10HE", type: "percentage", value: 10, condition: { minProducts: 2 }, expiryDate: "2025-03-21T23:59:59" },
+    { code: "10HE", type: "percentage", value: 5, condition: { minProducts: 2 }, expiryDate: "2025-03-21T23:59:59" },
     
-    { code: "05HE", type: "percentage", value: 4, condition: { minTotal: 200 }, expiryDate: "2025-03-21T23:59:59" }, 
+    { code: "05HE", type: "percentage", value: 4, condition: { minTotal: 150 }, expiryDate: "2025-03-21T23:59:59" }, 
       // 
 ];
 
