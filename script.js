@@ -44,7 +44,7 @@ const products = [
         id: 6,
         name: "منتج 6",
         price: 170,
-        images: ["img/6.png", ,"d/6/1.jpg","d/6/2.jpg","d/6/3.jpg","d/6/4.jpg"],
+        images: ["img/6.png", ,"d/1.jpg","d/2.jpg","d/3.jpg","d/4.jpg"],
         description: "",
         sizes: ["38","40"]
     },
