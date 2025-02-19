@@ -12,6 +12,13 @@ body {
     font-family: 'Cairo', sans-serif;
 }
 
+.error {
+     background-color: red;
+      border-radius: 8px;
+       color: 121212;
+
+}
+
 /* تنسيق الهيدر */
 header {
     background-color: #FBD905;
