@@ -278,7 +278,7 @@ function applyDiscount() {
             }
             if (discount.condition.minTotal && totalPrice < discount.condition.minTotal) {
                 isValid = false;
-                conditionMessage = `هذا الكود يتطلب أن يكون إجمالي السلة ${discount.condition.minTotal} ريال أو أكثر.`;
+                conditionMessage = `هذا الكود يتطلب أن يكون إجمالي السلة ${discount.condition.minTotal} دولار أو أكثر.`;
             }
         }
 
@@ -290,7 +290,7 @@ function applyDiscount() {
                 finalPrice -= discount.value; // خصم ثابت
             }
             appliedDiscountCode = discount.code; // تخزين الكود المستخدم
-            alert(`تم تطبيق كود الخصم "${discount.code}" بنجاح!\nتم تطبيق خصم بقيمة: ${discount.value}${discount.type.includes("percentage") ? "%" : " ريال"}`);
+            alert(`تم تطبيق كود الخصم "${discount.code}" بنجاح!\nتم تطبيق خصم بقيمة: ${discount.value}${discount.type.includes("percentage") ? "%" : " دولار"}`);
         } else {
             appliedDiscountCode = null; // إعادة تعيين المتغير إذا كان الكود غير صالح
             alert(`عذرًا، لا يمكن تطبيق كود الخصم "${discount.code}".\n${conditionMessage}`);
@@ -329,11 +329,11 @@ function sendToTelegram(order) {
     const message = `
 طلب جديد:
 
-${order.products.map(p => `- ${p.name} (${p.size}) | السعر: ${p.price} $ | الكمية: ${p.quantity}`).join('\n \n')}
+${order.products.map(p => `- ${p.name} (مقاس ${p.size}) | السعر: ${p.price} $ | الكمية: ${p.quantity}`).join('\n \n')}
 
 الإجمالي: ${order.total} $
 كود الخصم المستخدم: ${appliedDiscountCode || "لا يوجد"}
-الإجمالي بعد الخصم: ${order.finalTotal} ريال
+الإجمالي بعد الخصم: ${order.finalTotal} $
 رقم التواصل: ${order.phone}
 العنوان: ${order.address}
 طريقة التواصل: ${order.contactMethod}
