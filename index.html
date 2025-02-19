@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello yellow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    
+    
+    
+    <header>
+        <img class="img" src="logo.svg" alt="Logo">
+        <div class="cart-icon" onclick="openCartModal()">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16.5" cy="18.5" r="1.5"/>
+  <circle cx="9.5" cy="18.5" r="1.5"/>
+  <path d="M18 16H8a1 1 0 0 1-.958-.713L4.256 6H3a1 1 0 0 1 0-2h2a1 1 0 0 1 .958.713L6.344 6H21a1 1 0 0 1 .937 1.352l-3 8A1 1 0 0 1 18 16zm-9.256-2h8.563l2.25-6H6.944z"/>
+</svg>
+
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+    
+    
+    <!-- إشعار الخصم -->
+<div id="discount-popup" class="discount-popup">
+    <div class="discount-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h3>🔥 عرض خاص لفترة محدودة! </h3>
+        <p>استخدم أحد الأكواد التالية للحصول على خصم:</p>
+        
+        <div class="discount-box">
+            <strong>خصم 10% عند شراء منتجين أو أكثر:</strong>
+            <span id="code1">10HE</span>
+            <button onclick="copyCode('code1')">نسخ</button>
+        </div>
+        
+        <div class="discount-box">
+            <strong>خصم على المنتجات بسعر 200$ وأكثر:</strong>
+            <span id="code2">05HE</span>
+            <button onclick="copyCode('code2')">نسخ</button>
+        </div>
+        
+        <p>🚀 العرض ساري من **19 إلى 21 فبراير**!</p>
+    </div>
+</div>
+
+
+
+
+    <main>
+        
+        
+        <!-- عرض المنتجات -->
+        <section id="shop">
+            <div class="products">
+                <!-- سيتم ملؤها بالمنتجات -->
+            </div>
+        </section>
+    </main>
+
+    <!-- نافذة تفاصيل المنتج -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="product-details">
+                <div class="main-image">
+                    <img id="main-product-image" src="" alt="صورة المنتج">
+                </div>
+                <div class="thumbnail-images">
+                    <!-- سيتم ملؤها بالصور المصغرة -->
+                </div>
+                <h3 id="product-name"></h3>
+                <p id="product-description"></p>
+                <p id="product-price"></p>
+                <select id="size">
+                    <!-- سيتم ملؤها بالأحجام -->
+                </select>
+                <button onclick="addToCart()">إضافة إلى السلة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة السلة -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>سلة التسوق</h2>
+            <div class="cart-table-container">
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>السعر</th>
+                            <th>الكمية</th>
+                            <th>الإجمالي</th>
+                            <th>إجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- سيتم ملؤها بالمنتجات في السلة -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="cart-summary">
+                <p>الإجمالي: $<span id="total-price"> 0</span> </p>
+                <input type="text" id="discount-code" placeholder="أدخل كود الخصم">
+                <button onclick="applyDiscount()">تطبيق الخصم</button>
+                <p>الإجمالي بعد الخصم: $ <span id="final-price">0</span></p>
+                <button onclick="openCheckoutModal()">إتمام الشراء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إتمام الشراء -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content block">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>إتمام الشراء</h2>
+            <form id="checkout-form">
+                <div dir="rtl">
+                    <div style=" ki">
+                        <label for="phone">رقم التواصل (مطلوب):</label>
+                    </div>
+                    <input type="text" id="phone" placeholder="أدخل رقم الهاتف" maxlength="9" oninput="validatePhone()" />
+<p class="error" id="error-message"></p>
+
+                    <div style="">
+                        <label for="address">العنوان (اختياري):</label>
+                    </div>
+                    
+
+<input type="text" id="address" placeholder="أدخل عنوانك" oninput="validatePhone()" name="address" />
+
+
+
+                    <label>طريقة التواصل المفضلة:</label>
+                    <div class="rad">
+                        <div class="contact-method">
+                            <input class="radio" type="radio" id="whatsapp" name="contact" value="whatsapp" checked>
+                            <label for="whatsapp">واتساب</label>
+                        </div>
+                        <div class="contact-method">
+                            <input type="radio" id="telegram" name="contact" value="telegram">
+                            <label for="telegram">تليجرام</label>
+                        </div>
+                        <div class="contact-method">
+                            <input type="radio" id="call" name="contact" value="call">
+                            <label for="call">اتصال</label>
+                        </div>
+                    </div>
+                    
+<p class="error" id="error-message"></p>
+<button id="submit-btn" onclick="handleSubmit()" disabled>اتمام الطلب</button>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

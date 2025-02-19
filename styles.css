@@ -1,0 +1,588 @@
+/* إعدادات الأساس */
+* {
+    font-family: 'Cairo', sans-serif;
+  }
+/* تنسيق عام للصفحة */
+body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق الهيدر */
+header {
+    background-color: #FBD905;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Cairo', sans-serif;
+    border-radius: 0px 0px 10px 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+}
+
+.img {
+    height: 40px;
+    /* ضبط ارتفاع الشعار */
+  }
+
+/* تنسيق أيقونة السلة */
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: #333;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-icon #cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #fff;
+    color: #101211;
+    font-size: 12px;
+    padding: 0px 8px;
+    border-radius: 50%;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق القسم الرئيسي */
+main {
+    padding: 20px;
+}
+
+/* تنسيق قسم المنتجات */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق كفر المنتج */
+.product {
+    background-color: #101211;
+    border: 1px solid #28594f;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيق صورة المنتج */
+.product img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+/* تنسيق اسم المنتج */
+.product h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #fff;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق سعر المنتج */
+.product p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #FBD905;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق النوافذ المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Cairo', sans-serif;
+    
+}
+
+/* تنسيق محتوى النافذة المنبثقة */
+.modal-content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow-y: auto;
+    overflow-x: auto;
+    background-color: #fff;    
+    padding: 20px;
+    margin: 16px;
+    width: 80%;
+    max-width: 800px;
+    height: 90%;
+    max-height: 800px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* زر إغلاق النافذة المنبثقة */
+.close {
+    position: absolute;
+    
+    top: 10px;
+    right: 10px;    
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    font-family: 'Cairo', sans-serif;
+}
+
+.close:hover {
+    color: #28594f;
+}
+
+/* تنسيق تفاصيل المنتج داخل النافذة المنبثقة */
+.product-details .main-image img {
+    width: 100%;
+    height: 350px;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+/* تنسيق الصور المصغرة */
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.thumbnail-images img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    background-color: #fff;
+}
+
+.thumbnail-images img.active,
+.thumbnail-images img:hover {
+    border-color: #FBD905;
+}
+
+/* تنسيق اسم المنتج في النافذة المنبثقة */
+.product-details h3 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: #333;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق وصف المنتج */
+.product-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #444;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق سعر المنتج في النافذة المنبثقة */
+.product-details #product-price {
+    font-size: 20px;
+    color: #101211;
+    font-weight: bold;
+    margin: 10px 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق قائمة الأحجام */
+.product-details select {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #FBD905;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-family: 'Cairo', sans-serif;
+    background: #101211;
+    outline-color: #FBD905;
+    color: #fff;
+}
+
+/* تنسيق زر إضافة إلى السلة */
+.product-details button {
+    background-color: #FBD905;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    color: #fff;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+.product-details button:hover {
+    background-color: #1f443d;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق جدول السلة */
+.cart-table-container {
+    width: 100%;
+    height: 250px;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: #28594f solid;
+    font-family: 'Cairo', sans-serif;
+}
+
+#cart-table {
+    width: 100%;
+    min-width: 100px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    border: #101211 solid;
+    font-family: 'Cairo', sans-serif;
+}
+
+#cart-table th,
+#cart-table td {
+    padding: 4px;
+    text-align: center;
+    l
+    
+    font-family: 'Cairo', sans-serif;
+    
+}
+
+#cart-table th {
+    background-color: #FBD905;
+    color: #fff;
+    font-weight: bold;
+    
+    font-family: 'Cairo', sans-serif;
+}
+
+#cart-table td {
+    background-color: #fff;
+    border: #101211 solid;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-table button {
+    background-color: #FBD905;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* تنسيق زر الحذف في السلة */
+#cart-table button {
+    background-color: #FBD905;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+#cart-table button:hover {
+    background-color: #1d433b;
+}
+
+/* تنسيق ملخص السلة */
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+    display: flex;
+    flex-direction: column; /* ترتيب العناصر عموديًا */
+    align-items: center; /* محاذاة العناصر في المنتصف */
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-summary p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-summary input {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-summary button {
+    background-color: #FBD905;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+.cart-summary button:hover {
+    background-color: #c8ad00;
+}
+
+
+
+
+.inb {
+    margin-top: 20px;
+    background-color: #28594f;
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+input {
+    width: 250px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+    direction: ltr;
+    background-color: #FBD905; /* لون الخلفية الأصفر */
+    color: #333; /* لون النص */
+    font-weight: bold; /* جعل النص أكثر وضوحًا */
+}
+
+input::placeholder {
+    color: #777; /* لون الـ placeholder */
+    opacity: 1; /* لجعل النص واضحًا */
+}
+
+.butto {
+    display: flex;
+    justify-content: center; /* محاذاة العناصر أفقيًا */
+    align-items: center;
+    width: 90%;
+    background-color: #FBD905;
+    color: #101211;
+    border: none;
+    margin: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-family: 'Cairo', sans-serif;
+}
+
+.butto input::placeholder {
+    color: #000; /* لون رمادي لجعل النص واضح */
+    opacity: 50;  /* تأكد من أن الشفافية 100% */
+    font-size: 16px;
+    visibility: visible;
+    height: 40px;
+}
+
+.ki {
+    display: flex;
+    justify-content: center; /* محاذاة العناصر أفقيًا */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    font-family: 'Cairo', sans-serif;
+}
+
+.rad {
+    text-align: right;
+    padding-right: 35%;
+    font-family: 'Cairo', sans-serif;
+}
+
+.radio {
+    background-color: #1d433b;
+    outline-color: #1d433b;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+
+
+/* تصميم الزر */
+#submit-btn {
+    background-color: #FBD905; /* اللون الأصفر */
+    color: #333; /* النص باللون الرمادي الغامق */
+    font-size: 16px; /* حجم الخط */
+    padding: 12px 20px; /* المسافات حول النص */
+    border: none; /* إزالة الحدود */
+    border-radius: 8px; /* زوايا دائرية */
+    cursor: not-allowed; /* مؤشر غير قابل للنقر عند تعطيل الزر */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* تأثيرات سلسة */
+}
+
+/* عند تمكين الزر */
+#submit-btn:enabled {
+    cursor: pointer; /* تغيير المؤشر إلى شكل اليد عند تمكين الزر */
+    background-color: #E0A800; /* تغيير اللون قليلاً عندما يكون الزر مفعلًا */
+}
+
+/* عند الضغط على الزر */
+#submit-btn:active {
+    transform: scale(0.95); /* تصغير الزر قليلاً عند الضغط عليه */
+}
+
+
+
+/* تنسيق الإشعار */
+.discount-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+/* خلفية عند ظهور الإشعار */
+.discount-popup::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 250, 250, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    border-radius: 8px;
+}
+
+/* محتوى الإشعار */
+.discount-content h3 {
+    color: #d9534f;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.discount-content p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* تنسيق صناديق الخصم */
+.discount-box {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.discount-box span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* زر النسخ */
+.discount-box button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.discount-box button:hover {
+    background: #0056b3;
+}
+
+/* زر الإغلاق */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
