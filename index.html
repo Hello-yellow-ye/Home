@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
+    
+    
+    
     <header>
         <img class="img" src="logo.svg" alt="Logo">
         <div class="cart-icon" onclick="openCartModal()">
@@ -20,8 +24,37 @@
             <span id="cart-count">0</span>
         </div>
     </header>
+    
+    
+    <!-- إشعار الخصم -->
+<div id="discount-popup" class="discount-popup">
+    <div class="discount-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h3>🔥 عرض خاص لفترة محدودة! </h3>
+        <p>استخدم أحد الأكواد التالية للحصول على خصم:</p>
+        
+        <div class="discount-box">
+            <strong>خصم 10% عند شراء منتجين أو أكثر:</strong>
+            <span id="code1">10HE</span>
+            <button onclick="copyCode('code1')">نسخ</button>
+        </div>
+        
+        <div class="discount-box">
+            <strong>خصم على المنتجات بسعر 200$ وأكثر:</strong>
+            <span id="code2">05HE</span>
+            <button onclick="copyCode('code2')">نسخ</button>
+        </div>
+        
+        <p>🚀 العرض ساري من **19 إلى 21 فبراير**!</p>
+    </div>
+</div>
+
+
+
 
     <main>
+        
+        
         <!-- عرض المنتجات -->
         <section id="shop">
             <div class="products">
